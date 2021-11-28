@@ -10,15 +10,15 @@ Wookies. The profits would then be collected and donated to purchase medical sup
 impoverished Ewok settlement.
 
 ### Tasks
-■ Implement assignment using:
-■ Language: ​C#
-■ Framework: ​.Net Core
-■ Implement a book model with title, description, author, cover image and price
-■ Implement a REST endpoint for the /books resource with CRUD operations (returns JSON)
-■ Implement an in-memory book repository and give it two default items
-■ Submit Postman collection for REST endpoints Evaluation Criteria
-■ C#
-■ Include Postman collection to test endpoints
+- Implement assignment using:
+- Language: ​C#
+- Framework: ​.Net Core
+- Implement a book model with title, description, author, cover image and price
+- Implement a REST endpoint for the /books resource with CRUD operations (returns JSON)
+- Implement an in-memory book repository and give it two default items
+- Submit Postman collection for REST endpoints Evaluation Criteria
+- C#
+- Include Postman collection to test endpoints
 
 ### Submission
 Please organize, design, test and document your code as if it were going into production - then
