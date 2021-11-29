@@ -1,90 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using WookieBooks.Models;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using WookieBooks.Models.Dtos;
+using WookieBooks.Repositories.Interfaces;
 using WookieBooks.Services.Interfaces;
 
 namespace WookieBooks.Services.Concretes
 {
     public class BookService : IBookService
     {
-        private static List<Book> _Books = new List<Book>
-        {
-            new Book
-            {
-                Id = 0,
-                Title = "First C#",
-                Description = "A book about C#",
-                AuthorId = 0,
-                Author = new Author
-                {
-                    Id = 0,
-                    Name = "Author1"
-                },
-                CoverImage = Properties.Resources.b1,
-                Price = 20
-            },
-            new Book
-            {
-                Id = 1,
-                Title = "Second C#",
-                Description = "Second book about C#",
-                AuthorId = 1,
-                Author = new Author
-                {
-                    Id = 1,
-                    Name = "Author2"
-                },
-                CoverImage = Properties.Resources.b2,
-                Price = 5
-            },
-        };
+        private IBookRepository _bookRepository;
 
-        public IList<Book> List()
+        public BookService(IBookRepository bookRepository)
         {
-            return _Books;
+            _bookRepository = bookRepository;
         }
 
-        public Book Get(int id)
+        public async Task<IList<BookDto>> ListAsync()
         {
-            return _Books.FirstOrDefault(b => b.Id == id);
+            return await _bookRepository.ListAsync();
         }
 
-        public int Add(Book book)
+        public async Task<BookDto> GetAsync(int id)
         {
-            _Books.Add(book);
-            return book.Id;
+            return await _bookRepository.GetAsync(id);
         }
 
-        // This was the shortest solution I came with to update the reference of an element in a list
-        public void Update(int id, Book book)
+        public async Task<int> AddAsync(BookDto book)
         {
-            var index = _Books.FindIndex(b => b.Id == id);
-            if (index == -1)
-                throw new ArgumentException($"Book with id {id} could not be found");
-
-            // Avoiding the cover image changes in general update
-            book.CoverImage = _Books[index].CoverImage;
-
-            _Books[index] = book;
+            return await _bookRepository.AddAsync(book);
         }
 
-        public void UploadCoverImage(int id, byte[] coverImage)
+        public async Task UpdateAsync(int id, BookDto book)
         {
-            var entity = _Books.FirstOrDefault(b => b.Id == id);
-            if (entity == null)
-                throw new ArgumentException($"Book with id {id} could not be found");
-
-            entity.CoverImage = coverImage;
+            await _bookRepository.UpdateAsync(id, book);
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var entity = _Books.FirstOrDefault(b => b.Id == id);
-            if (entity == null)
-                throw new ArgumentException($"Book with id {id} could not be found");
-
-            _Books.Remove(entity);
+            await _bookRepository.DeleteAsync(id);
         }
     }
 }

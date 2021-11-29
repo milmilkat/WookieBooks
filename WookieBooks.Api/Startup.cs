@@ -1,11 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using WookieBooks.Data;
+using WookieBooks.Repositories;
+using WookieBooks.Repositories.Interfaces;
 using WookieBooks.Services.Concretes;
 using WookieBooks.Services.Interfaces;
+using WookieBooks.Models.MapProfiles;
 
 namespace WookieBooks.Api
 {
@@ -27,6 +32,17 @@ namespace WookieBooks.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WookieBooks.Api", Version = "v1" });
             });
 
+            services.AddDbContext<WookieContext>(opts =>
+            {
+                opts.UseInMemoryDatabase(databaseName: "WookieDb");
+                
+            });
+
+            services.AddAutoMapper(typeof(AuthorMapProfile));
+            services.AddAutoMapper(typeof(BookMapProfile));
+
+            var x = services.AddTransient<WookieContext>();
+            services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<IBookService, BookService>();
         }
 
@@ -39,6 +55,11 @@ namespace WookieBooks.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WookieBooks.Api v1"));
             }
+
+            using var serviceScope = app.ApplicationServices.CreateScope();
+            var context = serviceScope.ServiceProvider.GetService<WookieContext>();
+            var wookieContextSeed = new DataGenerator();
+            wookieContextSeed.SeedAsync(context).Wait();
 
             app.UseHttpsRedirection();
 

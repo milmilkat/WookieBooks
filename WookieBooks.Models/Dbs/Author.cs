@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WookieBooks.Models
+namespace WookieBooks.Models.Dbs
 {
     public class Author
     {

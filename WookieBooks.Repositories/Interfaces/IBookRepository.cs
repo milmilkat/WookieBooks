@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using WookieBooks.Models.Dtos;
 
-namespace WookieBooks.Services.Interfaces
+namespace WookieBooks.Repositories.Interfaces
 {
-    public interface IBookService
+    public interface IBookRepository
     {
         public Task<IList<BookDto>> ListAsync();
         public Task<BookDto> GetAsync(int id);

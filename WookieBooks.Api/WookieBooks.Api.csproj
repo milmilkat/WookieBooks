@@ -5,10 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.12" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WookieBooks.Data\WookieBooks.Data.csproj" />
+    <ProjectReference Include="..\WookieBooks.Repositories\WookieBooks.Repositories.csproj" />
     <ProjectReference Include="..\WookieBooks.Services\WookieBooks.Services.csproj" />
   </ItemGroup>
 

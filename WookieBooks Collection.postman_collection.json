@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "2ef90a71-1a40-483a-8c9d-5959215bd796",
+		"name": "WookieBooks Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://localhost:44314/Books",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "6LCXvmScbdQJyCYmnVtjarAPpQZvZWc5mXCnpzKFa6S7wh7eL6JzUBDHpq9Nschqw5BHxYYGbp6bTRaXm55B2StN3cHRbamFkVV8e2uQ4zbL4J8vGbvQXMGF8jpL9kbZUbacZM5QhveXnjbZsCuxTyWkthkG5aNu8Z7B4UF7KtJyxdqdVCyrrxq24zsKptBNTfzUCrGsJ25wtbaa4HW2FQMVWvkTPU5UVwAFJwzeedjJh9KfFET4rGZwZarkeRKv",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"authorId\" : 1,\r\n    \"title\": \"ss\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44314/Books",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44314",
+					"path": [
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44314/Books/3",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4,\r\n    \"authorId\" : 1,\r\n    \"title\": \"new book\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44314/Books/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44314",
+					"path": [
+						"Books",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44314/Books",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "6LCXvmScbdQJyCYmnVtjarAPpQZvZWc5mXCnpzKFa6S7wh7eL6JzUBDHpq9Nschqw5BHxYYGbp6bTRaXm55B2StN3cHRbamFkVV8e2uQ4zbL4J8vGbvQXMGF8jpL9kbZUbacZM5QhveXnjbZsCuxTyWkthkG5aNu8Z7B4UF7KtJyxdqdVCyrrxq24zsKptBNTfzUCrGsJ25wtbaa4HW2FQMVWvkTPU5UVwAFJwzeedjJh9KfFET4rGZwZarkeRKv",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44314/Books",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44314",
+					"path": [
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44314/Books/3",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "6LCXvmScbdQJyCYmnVtjarAPpQZvZWc5mXCnpzKFa6S7wh7eL6JzUBDHpq9Nschqw5BHxYYGbp6bTRaXm55B2StN3cHRbamFkVV8e2uQ4zbL4J8vGbvQXMGF8jpL9kbZUbacZM5QhveXnjbZsCuxTyWkthkG5aNu8Z7B4UF7KtJyxdqdVCyrrxq24zsKptBNTfzUCrGsJ25wtbaa4HW2FQMVWvkTPU5UVwAFJwzeedjJh9KfFET4rGZwZarkeRKv",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44314/Books/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44314",
+					"path": [
+						"Books",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
