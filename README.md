@@ -25,3 +25,10 @@ Please organize, design, test and document your code as if it were going into pr
 push your changes to the master branch. After you have pushed your code, you may submit the
 assignment by emailing a link to the repository.
 All the best and happy coding,
+
+
+## To Do
+- Global exception handler
+- Reading Db connection string from appsettings
+- Identity, Authentication, Authorization
+- Documentation
