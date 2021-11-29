@@ -32,3 +32,4 @@ All the best and happy coding,
 - Reading Db connection string from appsettings
 - Identity, Authentication, Authorization
 - Documentation
+- As I haven't implemented the Author CRUD, I have ignored the inclusion of Author in mapper. Didn't have more time to spend.
